@@ -1,0 +1,13 @@
+name: chess-crystal
+version: 0.1.0
+
+authors:
+  - Ferdinand Niedermann <ferdinand.niedermann@gmail.com>
+
+targets:
+  chess-crystal:
+    main: src/chess-crystal.cr
+
+crystal: 1.0.0
+
+license: MIT

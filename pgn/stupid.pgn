@@ -1,0 +1,32 @@
+[Event "Casual Game"]
+[Site "?, ?"]
+[Date "2021.04.06"]
+[Round "-"]
+[White "Niedermann, Ferdinand Niedermann"]
+[Black "Apple Chess 3.18"]
+[Result "*"]
+[Time "22:11:10"]
+[BlackType: "program"]
+
+1. Nf3 Nf6 2. e3 e6 3. d4 d5 4. Bd3 Bd6 5. O-O O-O 
+6. c4 dxc4 7. Bxc4 c5 8. Nc3 Nc6 9. dxc5 Bxc5 10. a3 Bd6 
+11. Nb5 Be7 12. b4 a6 13. Nc3 Qc7 14. Qb3 b5 15. Be2 e5 
+16. Qc2 Bb7 17. Bb2 Rad8 18. Rfd1 Rxd1 19. Rxd1 Rd8 20. Rxd8 Nxd8 
+21. Nh4 e4 22. Nf5 Bf8 23. Bd1 Qd7 24. Ng3 Ne6 25. Nb1 Bd6 
+26. Bxf6 Bxg3 27. hxg3 gxf6 28. Qd2 Qd3 29. Bc2 Qc4 30. g4 Ng5 
+31. Nc3 Qc8 32. Bd1 Ne6 33. Ne2 Qc4 34. Ng3 Qd3 35. Qxd3 exd3 
+36. Kf1 Nf8 37. Ke1 Bxg2 38. Kd2 Nd7 39. Kxd3 Ne5 40. Kd4 Nc4 
+41. Bc2 Nxa3 42. Bd3 Kf8 43. Bxh7 Bf3 44. Be4 Bxg4 45. Bb7 Nc2 
+46. Kc5 Ne1 47. Bxa6 Nd3 48. Kxb5 Nxf2 49. Kc5 Ke7 50. b5 Nd3 
+51. Kd4 Nb4 52. Kc4 Nc2 53. e4 f5 54. b6 Kd7 55. Bb5 Kc8 
+56. Nxf5 Bxf5 57. exf5 Ne3 58. Kc5 Nxf5 59. Bc4 Nh6 60. Bd5 f5 
+61. Kd4 f4 62. Kd3 Kb8 63. Kc4 Ng4 64. Kd4 Nh2 65. b7 f3 
+66. Ke3 Nf1 67. Kf2 Nd2 68. Ke1 f2 69. Kxf2 Nc4 70. Bxc4 Kxb7 
+71. Ke3 Kb6 72. Kd4 Kc6 73. Ke5 Kc5 74. Bd5 Kb6 75. Kd6 Kb5 
+76. Ba2 Kb4 77. Kd5 Kc3 78. Bb1 Kb2 79. Bf5 Kc3 80. Bb1 Kd2 
+81. Kd4 Ke2 82. Be4 Kf2 83. Bh1 Ke2 84. Bg2 Kd2 85. Bf1 Kc2 
+86. Be2 Kd2 87. Bd3 Kd1 88. Ke3 Kc1 89. Kd4 Kb2 90. Kc4 Kc1 
+91. Kc3 Kd1 92. Bc4 Ke1 93. Kd4 Kd2 94. Bb3 Ke2 95. Ke4 Kd2 
+96. Kd4 Ke2 97. Ke4 Kd2 98. Bd5 Kc3 99. Ke3 Kc2 100. Kd4 Kd2 
+101. Ke4 Kc3 
+*
