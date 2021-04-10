@@ -82,4 +82,32 @@ describe Chess::Board do
       )
     end
   end
+
+  describe "#move_possible?" do
+    context "knight" do
+      it "returns true if a move is possible" do
+        board = Chess::Board.new
+        board['c', 3] = BLACK_KNIGHT
+
+        board.move_possible?('c', 3, 'a', 2).should be_true
+        board.move_possible?('c', 3, 'b', 1).should be_true
+        board.move_possible?('c', 3, 'a', 4).should be_true
+        board.move_possible?('c', 3, 'd', 1).should be_true
+        board.move_possible?('c', 3, 'b', 5).should be_true
+        board.move_possible?('c', 3, 'e', 2).should be_true
+        board.move_possible?('c', 3, 'd', 5).should be_true
+        board.move_possible?('c', 3, 'e', 4).should be_true
+      end
+
+      it "returns false if a move is impossible" do
+        board = Chess::Board.new
+        board['c', 3] = BLACK_KNIGHT
+
+        board.move_possible?('c', 3, 'c', 3).should be_false
+        board.move_possible?('c', 3, 'e', 1).should be_false
+        board.move_possible?('c', 3, 'a', 3).should be_false
+        board.move_possible?('c', 3, 'f', 1).should be_false
+      end
+    end
+  end
 end
