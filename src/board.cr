@@ -8,9 +8,6 @@ module Chess
       end
     end
 
-    def files
-    end
-
     def ranks
       @ranks
     end
@@ -21,7 +18,7 @@ module Chess
 
     def to_s(io : IO)
       io << ranks.reverse.map do |rank|
-        rank.join
+        rank.map { |e| e.nil? ? ' ' : e }.join
       end.join("\n")
     end
 

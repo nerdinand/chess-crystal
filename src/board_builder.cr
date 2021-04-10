@@ -4,6 +4,10 @@ require "./constants.cr"
 
 module Chess
   class BoardBuilder
+    def self.empty
+      Board.new
+    end
+
     def self.initial_board
       empty.tap do |board|
         # white base rank
@@ -36,10 +40,6 @@ module Chess
           board[file, 7] = ChessPiece.new_black(PAWN)
         end
       end
-    end
-
-    def self.empty
-      Board.new
     end
   end
 end

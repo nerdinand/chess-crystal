@@ -3,12 +3,12 @@ require "./figurine_algebraic_notation"
 
 module Chess
   class ChessPiece
-    def initialize(colour : Colour, piece : Piece)
+    private def initialize(colour : Colour, piece : Piece)
       @colour = colour
       @piece = piece
     end
 
-    getter :piece
+    getter :colour, :piece
 
     def self.new_white(piece : Piece)
       new(WHITE, piece)
@@ -28,6 +28,13 @@ module Chess
 
     def to_s(io : IO)
       io << FigurineAlgebraicNotation[self]
+    end
+
+    def ==(other : ChessPiece?)
+      return false if other.nil?
+
+      self.colour == other.colour &&
+        self.piece == other.piece
     end
   end
 end
