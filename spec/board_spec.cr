@@ -84,6 +84,23 @@ describe Chess::Board do
   end
 
   describe "#move_possible?" do
+    describe "index checking" do
+      it "returns false if indices are out of bounds" do
+        board = Chess::Board.new
+
+        board.move_possible?('x', 9, 'a', 2).should be_false
+        board.move_possible?('c', 3, 'a', -1).should be_false
+      end
+    end
+
+    describe "no piece" do
+      it "returns false if there is no piece at the from position" do
+        board = Chess::Board.new
+
+        board.move_possible?('c', 3, 'a', 2).should be_false
+      end
+    end
+
     context "knight" do
       it "returns true if a move is possible" do
         board = Chess::Board.new

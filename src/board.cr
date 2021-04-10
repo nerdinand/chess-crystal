@@ -38,7 +38,6 @@ module Chess
       return false unless indices_valid?(to_file_index, to_rank_index)
 
       piece = @ranks[from_rank_index][from_file_index]
-
       return false if piece.nil?
 
       case piece.piece
