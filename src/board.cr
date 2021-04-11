@@ -56,6 +56,10 @@ module Chess
       move_checker.possible?(from_file_index, from_rank_index, to_file_index, to_rank_index)
     end
 
+    def piece_at_index?(file_index, rank_index)
+      !@ranks[rank_index][file_index].nil?
+    end
+
     private def indices_valid?(file_index, rank_index)
       (0..7).includes?(file_index) && (0..7).includes?(rank_index)
     end
