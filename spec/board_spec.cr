@@ -101,6 +101,16 @@ describe Chess::Board do
       end
     end
 
+    describe "target piece" do
+      it "returns false if piece at target position has same colour" do
+        board = Chess::Board.new
+        board['c', 3] = BLACK_KNIGHT
+        board['a', 2] = Chess::ChessPiece.new_black(Chess::PAWN)
+
+        board.move_possible?('c', 3, 'a', 2).should be_false
+      end
+    end
+
     context "knight" do
       it "returns true if a move is possible" do
         board = Chess::Board.new
