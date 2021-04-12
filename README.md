@@ -4,7 +4,8 @@ A toy implementation of the chess rules. Mainly to get to grips with [Crystal](h
 
 ## Installation
 
-TODO: Write installation instructions here
+1. [Install Crystal](https://crystal-lang.org/install)
+2. Install dependencies: `shards install`
 
 ## Usage
 
@@ -16,7 +17,11 @@ crystal src/chess-crystal.cr
 
 ## Development
 
-TODO: Write development instructions here
+Build & run tests:
+
+```bash
+crystal spec --order random
+```
 
 ## Contributing
 
