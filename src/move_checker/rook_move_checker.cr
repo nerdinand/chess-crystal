@@ -7,9 +7,5 @@ module Chess
       straight_path?(from_file_index, from_rank_index, to_file_index, to_rank_index) &&
         path_free?(from_file_index, from_rank_index, to_file_index, to_rank_index)
     end
-
-    private def straight_path?(from_file_index : Int, from_rank_index : Int, to_file_index : Int, to_rank_index : Int) : Bool
-      from_file_index == to_file_index || from_rank_index == to_rank_index
-    end
   end
 end

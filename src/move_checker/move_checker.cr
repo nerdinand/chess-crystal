@@ -8,6 +8,17 @@ module Chess
 
     abstract def possible?(from_file_index : Int, from_rank_index : Int, to_file_index : Int, to_rank_index : Int) : Bool
 
+    protected def diagonal_path?(from_file_index : Int, from_rank_index : Int, to_file_index : Int, to_rank_index : Int) : Bool
+      file_difference = from_file_index - to_file_index
+      rank_difference = from_rank_index - to_rank_index
+
+      file_difference.abs == rank_difference.abs
+    end
+
+    private def straight_path?(from_file_index : Int, from_rank_index : Int, to_file_index : Int, to_rank_index : Int) : Bool
+      from_file_index == to_file_index || from_rank_index == to_rank_index
+    end
+
     protected def path_free?(from_file_index : Int, from_rank_index : Int, to_file_index : Int, to_rank_index : Int) : Bool
       files = from_file_index.to(to_file_index).to_a
       ranks = from_rank_index.to(to_rank_index).to_a
