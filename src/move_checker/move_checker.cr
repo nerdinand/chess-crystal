@@ -1,4 +1,5 @@
 require "../board"
+require "../board_coordinates"
 
 module Chess
   abstract class MoveChecker
@@ -6,22 +7,22 @@ module Chess
       @board = board
     end
 
-    abstract def possible?(from_file_index : Int, from_rank_index : Int, to_file_index : Int, to_rank_index : Int) : Bool
+    abstract def possible?(from : BoardCoordinates, to : BoardCoordinates) : Bool
 
-    protected def diagonal_path?(from_file_index : Int, from_rank_index : Int, to_file_index : Int, to_rank_index : Int) : Bool
-      file_difference = from_file_index - to_file_index
-      rank_difference = from_rank_index - to_rank_index
+    protected def diagonal_path?(from : BoardCoordinates, to : BoardCoordinates) : Bool
+      file_difference = from.file_index - to.file_index
+      rank_difference = from.rank_index - to.rank_index
 
       file_difference.abs == rank_difference.abs
     end
 
-    private def straight_path?(from_file_index : Int, from_rank_index : Int, to_file_index : Int, to_rank_index : Int) : Bool
-      from_file_index == to_file_index || from_rank_index == to_rank_index
+    private def straight_path?(from : BoardCoordinates, to : BoardCoordinates) : Bool
+      from.file_index == to.file_index || from.rank_index == to.rank_index
     end
 
-    protected def path_free?(from_file_index : Int, from_rank_index : Int, to_file_index : Int, to_rank_index : Int) : Bool
-      files = from_file_index.to(to_file_index).to_a
-      ranks = from_rank_index.to(to_rank_index).to_a
+    protected def path_free?(from : BoardCoordinates, to : BoardCoordinates) : Bool
+      files = from.file_index.to(to.file_index).to_a
+      ranks = from.rank_index.to(to.rank_index).to_a
 
       # It's possible that we stay on one file/rank, therefore the corresponding array will
       # only contain one entry. In that case we need to expand it to the length of the other
