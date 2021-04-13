@@ -1,5 +1,5 @@
 require "./spec_helper"
-require "../src/board_coordinates"
+require "../src/algebraic_coordinates"
 
 describe Chess::AlgebraicCoordinates do
   describe "#to_board_coordinates?" do

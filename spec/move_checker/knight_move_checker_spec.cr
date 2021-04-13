@@ -1,8 +1,8 @@
 require "../spec_helper"
 require "../../src/board_builder"
+require "../../src/chess_piece"
 require "../../src/move_checker/knight_move_checker"
 require "../../src/constants"
-require "../../src/board_coordinates"
 
 describe Chess::KnightMoveChecker do
   describe ".possible?" do
