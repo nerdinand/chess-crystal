@@ -10,7 +10,7 @@ module Chess
     end
 
     def to_board_coordinates
-      BoardCoordinates.new(file_index, rank_index)
+      @board_coordinates ||= BoardCoordinates.new(file_index, rank_index)
     end
 
     private def file_index : Int
