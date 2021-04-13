@@ -10,5 +10,10 @@ module Chess
     def valid?
       (0..7).includes?(file_index) && (0..7).includes?(rank_index)
     end
+
+    def ==(other : BoardCoordinates)
+      self.file_index == other.file_index &&
+        self.rank_index == other.rank_index
+    end
   end
 end

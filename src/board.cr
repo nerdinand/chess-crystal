@@ -26,11 +26,13 @@ module Chess
     end
 
     def []=(algebraic_coordinates : AlgebraicCoordinates, piece : ChessPiece?)
-      @ranks[algebraic_coordinates.rank_index][algebraic_coordinates.file_index] = piece
+      board_coordinates = algebraic_coordinates.to_board_coordinates
+      @ranks[board_coordinates.rank_index][board_coordinates.file_index] = piece
     end
 
     def [](algebraic_coordinates : AlgebraicCoordinates)
-      @ranks[algebraic_coordinates.rank_index][algebraic_coordinates.file_index]
+      board_coordinates = algebraic_coordinates.to_board_coordinates
+      @ranks[board_coordinates.rank_index][board_coordinates.file_index]
     end
 
     def to_s(io : IO)
