@@ -33,16 +33,6 @@ module Chess
       @ranks[algebraic_coordinates.rank_index][algebraic_coordinates.file_index]
     end
 
-    def []=(coordinates : String, piece : ChessPiece?)
-      algebraic_coordinates = AlgebraicCoordinates.new(coordinates)
-      @ranks[algebraic_coordinates.rank_index][algebraic_coordinates.file_index] = piece
-    end
-
-    def [](coordinates : String)
-      algebraic_coordinates = AlgebraicCoordinates.new(coordinates)
-      @ranks[algebraic_coordinates.rank_index][algebraic_coordinates.file_index]
-    end
-
     def to_s(io : IO)
       io << ranks.reverse.map do |rank|
         rank.map { |e| e || ' ' }.join

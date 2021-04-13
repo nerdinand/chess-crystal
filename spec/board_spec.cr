@@ -25,8 +25,8 @@ describe Chess::Board do
     it "assigns a piece to a field" do
       board = Chess::Board.new
 
-      board["c5"] = BLACK_KNIGHT
-      board["e7"] = WHITE_ROOK
+      board[AC.new("c5")] = BLACK_KNIGHT
+      board[AC.new("e7")] = WHITE_ROOK
       board.ranks[4][2].should be(BLACK_KNIGHT)
       board.ranks[6][4].should be(WHITE_ROOK)
     end
@@ -35,19 +35,19 @@ describe Chess::Board do
       board = Chess::Board.new
 
       expect_raises(IndexError) do
-        board["i3"] = BLACK_KNIGHT
+        board[AC.new("i3")] = BLACK_KNIGHT
       end
 
       expect_raises(IndexError) do
-        board["b9"] = BLACK_KNIGHT
+        board[AC.new("b9")] = BLACK_KNIGHT
       end
     end
 
     it "allows nil to remove a piece" do
       board = Chess::Board.new
 
-      board["c5"] = BLACK_KNIGHT
-      board["c5"] = nil
+      board[AC.new("c5")] = BLACK_KNIGHT
+      board[AC.new("c5")] = nil
 
       board.ranks[4][2].should be_nil
     end
@@ -68,7 +68,7 @@ describe Chess::Board do
         "        "
       )
 
-      board["c5"] = BLACK_KNIGHT
+      board[AC.new("c5")] = BLACK_KNIGHT
 
       board.to_s.should eq(
         "        " + "\n" +
@@ -104,8 +104,8 @@ describe Chess::Board do
     describe "target piece" do
       it "returns false if piece at target position has same colour" do
         board = Chess::Board.new
-        board["c3"] = BLACK_KNIGHT
-        board["a2"] = Chess::ChessPiece.new_black(Chess::PAWN)
+        board[AC.new("c3")] = BLACK_KNIGHT
+        board[AC.new("a2")] = Chess::ChessPiece.new_black(Chess::PAWN)
 
         board.move_possible?("c3", "a2").should be_false
       end
@@ -115,8 +115,8 @@ describe Chess::Board do
   describe "#piece_at_index?" do
     it "returns true if there's a piece at the index, false otherwise" do
       board = Chess::Board.new
-      board["c3"] = BLACK_KNIGHT
-      board["a2"] = Chess::ChessPiece.new_black(Chess::PAWN)
+      board[AC.new("c3")] = BLACK_KNIGHT
+      board[AC.new("a2")] = Chess::ChessPiece.new_black(Chess::PAWN)
 
       board.piece_at_index?(2, 2).should be_true
       board.piece_at_index?(0, 1).should be_true
