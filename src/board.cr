@@ -9,7 +9,7 @@ require "./algebraic_coordinates"
 module Chess
   class Board
     def initialize
-      @ranks = Array(Array(ChessPiece?)).new(8) do |i|
+      @ranks = Array(Array(ChessPiece?)).new(8) do
         Array(ChessPiece?).new(8, nil)
       end
 
@@ -36,9 +36,9 @@ module Chess
     end
 
     def to_s(io : IO)
-      io << ranks.reverse.map do |rank|
-        rank.map { |e| e || ' ' }.join
-      end.join("\n")
+      io << ranks.reverse.join("\n") do |rank|
+        rank.join { |e| e || ' ' }
+      end
     end
 
     def move_possible?(from_coordinates : String, to_coordinates : String)
