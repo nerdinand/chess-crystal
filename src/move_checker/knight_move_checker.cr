@@ -14,9 +14,9 @@ module Chess
       {-2, -1},
     ]
 
-    def possible?(from_file_index : Int, from_rank_index : Int, to_file_index : Int, to_rank_index : Int) : Bool
+    def possible?(from : BoardCoordinates, to : BoardCoordinates) : Bool
       INDEX_COMBINATIONS.includes?(
-        {from_file_index - to_file_index, from_rank_index - to_rank_index}
+        {from.file_index - to.file_index, from.rank_index - to.rank_index}
       )
     end
   end

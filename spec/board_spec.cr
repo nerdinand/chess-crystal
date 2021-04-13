@@ -25,8 +25,8 @@ describe Chess::Board do
     it "assigns a piece to a field" do
       board = Chess::Board.new
 
-      board['c', 5] = BLACK_KNIGHT
-      board['e', 7] = WHITE_ROOK
+      board[AC.new("c5")] = BLACK_KNIGHT
+      board[AC.new("e7")] = WHITE_ROOK
       board.ranks[4][2].should be(BLACK_KNIGHT)
       board.ranks[6][4].should be(WHITE_ROOK)
     end
@@ -35,19 +35,19 @@ describe Chess::Board do
       board = Chess::Board.new
 
       expect_raises(IndexError) do
-        board['i', 3] = BLACK_KNIGHT
+        board[AC.new("i3")] = BLACK_KNIGHT
       end
 
       expect_raises(IndexError) do
-        board['b', 11] = BLACK_KNIGHT
+        board[AC.new("b9")] = BLACK_KNIGHT
       end
     end
 
     it "allows nil to remove a piece" do
       board = Chess::Board.new
 
-      board['c', 5] = BLACK_KNIGHT
-      board['c', 5] = nil
+      board[AC.new("c5")] = BLACK_KNIGHT
+      board[AC.new("c5")] = nil
 
       board.ranks[4][2].should be_nil
     end
@@ -68,7 +68,7 @@ describe Chess::Board do
         "        "
       )
 
-      board['c', 5] = BLACK_KNIGHT
+      board[AC.new("c5")] = BLACK_KNIGHT
 
       board.to_s.should eq(
         "        " + "\n" +
@@ -88,8 +88,8 @@ describe Chess::Board do
       it "returns false if indices are out of bounds" do
         board = Chess::Board.new
 
-        board.move_possible?('x', 9, 'a', 2).should be_false
-        board.move_possible?('c', 3, 'a', -1).should be_false
+        board.move_possible?("x9", "a2").should be_false
+        board.move_possible?("c3", "a0").should be_false
       end
     end
 
@@ -97,17 +97,17 @@ describe Chess::Board do
       it "returns false if there is no piece at the from position" do
         board = Chess::Board.new
 
-        board.move_possible?('c', 3, 'a', 2).should be_false
+        board.move_possible?("c3", "a2").should be_false
       end
     end
 
     describe "target piece" do
       it "returns false if piece at target position has same colour" do
         board = Chess::Board.new
-        board['c', 3] = BLACK_KNIGHT
-        board['a', 2] = Chess::ChessPiece.new_black(Chess::PAWN)
+        board[AC.new("c3")] = BLACK_KNIGHT
+        board[AC.new("a2")] = Chess::ChessPiece.new_black(Chess::PAWN)
 
-        board.move_possible?('c', 3, 'a', 2).should be_false
+        board.move_possible?("c3", "a2").should be_false
       end
     end
   end
@@ -115,8 +115,8 @@ describe Chess::Board do
   describe "#piece_at_index?" do
     it "returns true if there's a piece at the index, false otherwise" do
       board = Chess::Board.new
-      board['c', 3] = BLACK_KNIGHT
-      board['a', 2] = Chess::ChessPiece.new_black(Chess::PAWN)
+      board[AC.new("c3")] = BLACK_KNIGHT
+      board[AC.new("a2")] = Chess::ChessPiece.new_black(Chess::PAWN)
 
       board.piece_at_index?(2, 2).should be_true
       board.piece_at_index?(0, 1).should be_true
